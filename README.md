@@ -49,6 +49,36 @@ If `ffmpeg`/`ffmpeg.exe` isn't found in `./bin`, the app automatically falls bac
 
 ---
 
+## 📥 Download the Windows App
+
+Don't want to install Python? Download the ready-to-use Windows application.
+
+1. Open the **Releases** page of this repository.
+2. Download the latest **YouTubeDownloader.exe** from the **Assets** section.
+3. Double-click **YouTubeDownloader.exe** and wait a few seconds.
+4. Your default browser opens the app automatically.
+5. Paste a YouTube URL, click **Fetch Video**, choose the download type and quality, then click **Download**.
+6. When it finishes, click **💾 Save file** and choose where to save it.
+
+> No Python, ffmpeg or Node.js installation is required. Everything is bundled into the executable.
+
+### Closing the Application
+
+Just close the browser tab. The app stops itself a few seconds later. Refreshing the page is safe and does not close it.
+
+### Troubleshooting (Windows app)
+
+| Problem | Solution |
+|---|---|
+| Nothing happens after opening the EXE | Wait a few seconds; the first launch is slower. |
+| Windows SmartScreen warning | Click **More info → Run anyway** if you trust the application. |
+| Browser doesn't open | Open the address shown in the console window (a `http://localhost:<port>` link). |
+| App still running after closing the tab | Wait about 10 seconds, or end **YouTubeDownloader.exe** in Task Manager. |
+| Fetch Video returns nothing | Likely a temporary YouTube rate limit. Wait a few seconds and click **Fetch Video** again. |
+| Download fails with HTTP 403 | The app retries automatically. If it still fails, try again later or update yt-dlp (see below). |
+
+---
+
 ## 🚀 Running from source
 
 1. Put `ffmpeg` (or `ffmpeg.exe` on Windows) in a `bin/` folder next to `video_converter_gui.py`, or make sure `ffmpeg` is on your PATH.
