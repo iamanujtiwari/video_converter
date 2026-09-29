@@ -54,30 +54,95 @@ If `ffmpeg`/`ffmpeg.exe` isn't found in `./bin`, the app automatically falls bac
 Don't want to install Python? Download the ready-to-use Windows application.
 
 1. Open the **Releases** page of this repository.
-2. Download the latest **YouTubeDownloader.exe** from the **Assets** section.
-3. Double-click **YouTubeDownloader.exe** and wait a few seconds.
-4. Your default browser opens the app automatically.
-5. Paste a YouTube URL, click **Fetch Video**, choose the download type and quality, then click **Download**.
-6. When it finishes, click **💾 Save file** and choose where to save it.
+2. Download the latest **VideoConverter.exe** from the **Assets** section.
+3. Double-click **VideoConverter.exe** to launch the application.
+4. Select the video or audio file you want to convert.
+5. Choose the desired **container/format**, video codec, audio codec, resolution, bitrate, FPS, and other options.
+6. Select the output location using **Save As…**.
+7. Click **Convert** and wait for the conversion to finish.
+8. When the progress reaches **100%**, your converted file is ready.
 
-> No Python, ffmpeg or Node.js installation is required. Everything is bundled into the executable.
+> No Python or FFmpeg installation is required. FFmpeg is bundled with the executable.
+
+### Supported Formats
+
+The Video Converter supports multiple containers, including:
+
+- MP4
+- MKV
+- MOV
+- WebM
+- AVI
+- GIF
+- MP3
+- M4A
+- WAV
+- MPEG
+- MPG
+- MPEG-1
+
+It also supports multiple video and audio codecs, including:
+
+- H.264 (`libx264`)
+- H.265 (`libx265`)
+- VP9 (`libvpx-vp9`)
+- MPEG-4
+- MPEG-1 Video
+- MPEG-2 Video
+- AAC
+- MP3
+- Opus
+- FLAC
+- AC-3
 
 ### Closing the Application
 
-Just close the browser tab. The app stops itself a few seconds later. Refreshing the page is safe and does not close it.
+When the conversion is complete, you can close the application normally using the **X** button.
 
-### Troubleshooting (Windows app)
+If a conversion is currently running, use the **Cancel** button first before closing the application.
+
+### Troubleshooting (Windows App)
 
 | Problem | Solution |
 |---|---|
-| Nothing happens after opening the EXE | Wait a few seconds; the first launch is slower. |
+| Nothing happens after opening the EXE | Wait a few seconds; the first launch may take longer. |
 | Windows SmartScreen warning | Click **More info → Run anyway** if you trust the application. |
-| Browser doesn't open | Open the address shown in the console window (a `http://localhost:<port>` link). |
-| App still running after closing the tab | Wait about 10 seconds, or end **YouTubeDownloader.exe** in Task Manager. |
-| Fetch Video returns nothing | Likely a temporary YouTube rate limit. Wait a few seconds and click **Fetch Video** again. |
-| Download fails with HTTP 403 | The app retries automatically. If it still fails, try again later or update yt-dlp (see below). |
+| FFmpeg not found | Make sure the bundled FFmpeg files were included correctly when building the EXE. |
+| Conversion fails | Check the **Log** section at the bottom of the application for the FFmpeg error message. |
+| Output format is incorrect | Check the selected **Container** and output filename before clicking **Convert**. |
+| MPEG/MPG conversion fails | Make sure the selected input contains a compatible video/audio stream and check the FFmpeg log. |
+| Conversion is very slow | Try a faster preset such as **fast**, **faster**, **veryfast**, or **ultrafast**. |
+| No audio in the output | Check that **No audio (mute)** is not enabled and that an appropriate audio codec is selected. |
+| Video has no subtitles | Make sure **No subtitles** is not enabled if subtitles are required. |
+| GPU encoding doesn't work | Make sure the selected NVIDIA, AMD, or Intel hardware encoder is supported by your FFmpeg build and GPU driver. |
 
----
+### ⚙️ Advanced Options
+
+The application also provides advanced FFmpeg controls:
+
+- Video codec
+- Audio codec
+- Video/audio bitrate
+- CRF quality
+- FPS
+- Resolution
+- Aspect ratio
+- Pixel format
+- Video filters
+- Audio filters
+- Stream mapping
+- Trimming
+- CPU thread control
+- Metadata
+- MP4/MOV flags
+- GPU acceleration
+- Audio-only extraction
+- Remove audio
+- Remove subtitles
+- Stop at shortest stream
+- Custom FFmpeg arguments
+
+> **Tip:** If you are not familiar with FFmpeg options, the default settings are recommended.
 
 ## 🚀 Running from source
 
